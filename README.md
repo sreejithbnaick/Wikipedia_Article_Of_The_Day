@@ -44,6 +44,7 @@ RESPONSE:
         },
         "lang" : en,
         "dir" : ltr
+        url: https: //en.wikipedia.org/wiki//wiki/Oppenheimer_security_hearing
     
     }
 
