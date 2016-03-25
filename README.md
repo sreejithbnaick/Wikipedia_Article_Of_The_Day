@@ -43,7 +43,7 @@ RESPONSE:
             "height" : 320
         },
         "lang" : en,
-        "dir" : ltr
+        "dir" : ltr,
         url: https: //en.wikipedia.org/wiki//wiki/Oppenheimer_security_hearing
     
     }
