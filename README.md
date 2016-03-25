@@ -1,4 +1,4 @@
-# Wikipedia Article Of The Day
+# Wikipedia Featured Article of the day
 Nodejs library for Wikipedia Article of the day
 
 Requirements:
