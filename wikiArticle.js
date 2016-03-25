@@ -25,16 +25,22 @@ function wikiArticle(ts, callback) {
     console.log("Date: " + date);
     scraperjs.StaticScraper.create('https://en.m.wikipedia.org/wiki/Wikipedia:Today\'s_featured_article/' + date)
         .scrape(function ($) {
-            return $("#bodyContent a")[1].attribs.title;
+            var value= $("#bodyContent a")[1];
+            var article ={}
+            article.title= value.attribs.title;
+            article.url = "https://en.wikipedia.org/wiki/"+value.attribs.href;
+            return article;
         })
-        .then(function (title) {
-            var encodedTitle = encodeURIComponent(title);
+        .then(function (article) {
+            var encodedTitle = encodeURIComponent(article.title);
             var request = require("request");
             request.get("https://rest.wikimedia.org/en.wikipedia.org/v1/page/summary/" + encodedTitle, function (error, response, body) {
                 if (error) {
                     console.log(error);
                 } else {
-                    callback(body);
+                    var result= JSON.parse(body);
+                    result.url =article.url;
+                    callback(result);
                 }
             });
         })
